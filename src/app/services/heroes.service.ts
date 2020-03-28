@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Heroe } from "../interfaces/heroes.interface";
+import { ThrowStmt } from "@angular/compiler";
 
 @Injectable()
 export class HeroesService {
@@ -63,6 +64,9 @@ export class HeroesService {
   ];
   constructor() {
     console.log("Servicio Heroes!");
+    for (const key in this.heroes) {
+      this.heroes[key].idx = parseInt(key);
+    }
   }
 
   getHeroes() {
